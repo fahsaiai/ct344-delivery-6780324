@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Delivery request | SwiftDrop</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+    <header><a class="brand" href="index.html">SwiftDrop</a>
+        <nav><a href="delivery.html">ส่งพัสดุ</a> · <a href="profile.html">ข้อมูลผู้ใช้</a></nav>
+    </header>
+    <main class="container narrow">
+        <p class="eyebrow">สวัสดีคุณ X</p>
+        <h1>Request a delivery</h1>
+        <p class="lead">Try a mock delivery using two points on the map. Estimates use straight-line distance, not a road route.</p>
+        <section aria-labelledby="location-heading">
+  <h2 id="location-heading">Choose locations on the map</h2>
+  <!-- Design decision: Numbered instructions explain the required order and how to edit the second pin, reducing repeated clicks on the pickup point. -->
+  <p id="map-help">1. Click the map to set pickup. 2. Select Edit destination pin and click a different point. 3. Reserve a driver and wait for the summary. 4. Review it before confirming the mock payment. Use either edit button to move a pin.</p>
+  <div class="map-controls">
+    <button id="choose-pickup" type="button">Edit pickup pin</button>
+    <button id="choose-destination" type="button">Edit destination pin</button>
+  </div>
+  <p id="pickup-result" class="location-result">Pickup: not selected</p>
+  <p id="destination-result" class="location-result">Destination: not selected</p>
+  <p id="status" class="status" role="status">Click the map to choose pickup.</p>
+  <div id="map" aria-describedby="map-help" aria-label="Map with selectable delivery locations"></div>
+  <button id="reserve" type="button" disabled>Reserve driver</button>
+  <p id="waiting" class="waiting" hidden>Finding a driver<span class="dots">...</span></p>
+  <section id="summary" class="estimate" hidden></section>
+  <button id="confirm" type="button">Confirm mock payment</button>
+</section>
+    </main>
+<!-- Usability test task: Send a fictional parcel from a point near central Bangkok to a different point east of it. Move the pickup pin once, then find a mock driver and review the estimate before confirming the mock payment. -->
+<!-- Expected evidence: I will watch whether the tester changes the active pin, sets both points, notices the finding-driver feedback, and reads the estimate before confirming. -->
+<!-- Peer-test observation: NOT YET CONDUCTED. Record one real hesitation or error after a classmate tries this task. -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/delivery-free-map.js"></script>
+</body>
+
+</html>
